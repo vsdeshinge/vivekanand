@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Global base */
+body {
+  @apply bg-slate-950 text-slate-100 font-sans antialiased;
+}
+
+/* Brand utilities */
+@layer utilities {
+  .bg-brand-gradient {
+    @apply bg-gradient-to-r from-[#fe5000] to-[#ffb347];
+  }
+
+  .text-brand-gradient {
+    @apply bg-gradient-to-r from-[#fe5000] to-[#ffb347] bg-clip-text text-transparent;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+}
