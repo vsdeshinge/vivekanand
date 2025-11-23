@@ -2,43 +2,40 @@
 
 const companies = [
   {
-    name: "Acme Corp",
+    name: "REON Skills",
     role: "Web Design & Development",
-    logo: "/companies/acme.png",
+    logo: "/companies/reon.svg",
   },
   {
-    name: "Nova Retail",
+    name: "POSSPOLE",
     role: "Branding & E-commerce",
-    logo: "/companies/nova.png",
+    logo: "/companies/posspole.svg",
   },
   {
-    name: "Skyline Events",
+    name: "Redefine",
     role: "Event & Exhibition Fabrication",
-    logo: "/companies/skyline.png",
+    logo: "/companies/redefine.svg",
   },
   {
     name: "Pixel Studios",
     role: "Motion & Video",
-    logo: "/companies/pixel.png",
+    logo: "/companies/chesney.svg",
   },
   {
     name: "HealthPlus",
     role: "Product Website & Brand Collateral",
-    logo: "/companies/healthplus.png",
+    logo: "/companies/vce.svg",
   },
   {
     name: "TechHive",
     role: "SaaS UI & Dashboard",
-    logo: "/companies/techhive.png",
+    logo: "/companies/fathermuller.webp",
   },
 ];
 
 const CompaniesSection = () => {
   return (
-    <section
-      id="companies"
-      className="px-4 py-16 md:px-0"
-    >
+    <section id="companies" className="px-4 py-16 md:px-0">
       <div className="mx-auto max-w-6xl space-y-8">
         {/* Heading */}
         <div className="max-w-3xl">
@@ -50,9 +47,9 @@ const CompaniesSection = () => {
             <span className="text-brand-gradient">worked with.</span>
           </h2>
           <p className="mt-4 text-sm text-slate-300 md:text-base">
-            From early-stage startups to established brands, I&apos;ve collaborated
-            with 100+ clients on websites, design systems, launch campaigns and
-            on-ground event experiences.
+            From early-stage startups to established brands, I&apos;ve
+            collaborated with 100+ clients on websites, design systems, launch
+            campaigns and on-ground event experiences.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-4 py-1.5 text-xs text-slate-200">
@@ -85,9 +82,7 @@ const CompaniesSection = () => {
                 <p className="truncate text-sm font-semibold text-slate-100">
                   {company.name}
                 </p>
-                <p className="mt-0.5 text-xs text-slate-400">
-                  {company.role}
-                </p>
+                <p className="mt-0.5 text-xs text-slate-400">{company.role}</p>
               </div>
             </div>
           ))}
