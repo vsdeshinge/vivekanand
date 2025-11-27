@@ -2,7 +2,6 @@
 import { useEffect, useRef } from "react";
 import CompaniesSection from "../components/CompaniesSection";
 
-
 // smooth infinite horizontal auto-scroller with direction
 const AutoScroller = ({ images, speed = 0.7, direction = "ltr" }) => {
   const containerRef = useRef(null);
@@ -68,11 +67,7 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr" }) => {
           key={`${src}-${idx}`}
           className="flex-shrink-0 w-64 h-40 md:w-80 md:h-48 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70"
         >
-          <img
-            src={src}
-            alt=""
-            className="h-full w-full object-cover"
-          />
+          <img src={src} alt="" className="h-full w-full object-cover" />
         </div>
       ))}
     </div>
@@ -82,16 +77,18 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr" }) => {
 const Work = () => {
   // 🔁 REPLACE these with your real image paths later
   const webImages = [
-    "/works/web/web1.jpg",
-    "/works/web/web2.jpg",
+    "/branding/melangeMockup.jpg",
+    "/branding/anokhipipes.jpg",
     "/works/web/web3.jpg",
     "/works/web/web4.jpg",
   ];
 
   const designImages = [
-    "/works/design/design1.jpg",
-    "/works/design/design2.jpg",
-    "/works/design/design3.jpg",
+    "/branding/melangeMockup.jpg",
+    "/branding/anokhipipes.jpg",
+    "/branding/maye.jpg",
+    "/branding/sanjeevanimockup.jpg"
+    
   ];
 
   const motionImages = [
@@ -107,10 +104,7 @@ const Work = () => {
   ];
 
   return (
-    <section
-      id="work"
-      className="min-h-[80vh] px-4 py-16 pt-8 md:px-0"
-    >
+    <section id="work" className="min-h-[80vh] px-4 py-16 pt-8 md:px-0">
       <div className="mx-auto max-w-6xl space-y-12">
         {/* Heading */}
         <div>
@@ -238,7 +232,7 @@ const Work = () => {
           <AutoScroller images={eventsImages} speed={0.6} direction="rtl" />
         </div>
       </div>
-       <CompaniesSection />
+      <CompaniesSection />
     </section>
   );
 };

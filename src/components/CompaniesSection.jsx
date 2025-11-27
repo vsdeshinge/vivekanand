@@ -4,7 +4,7 @@ const companies = [
   {
     name: "REON Skills",
     role: "Web Design & Development",
-    logo: "/companies/reon.svg",
+    logo: "/companies/reonskills.svg",
   },
   {
     name: "POSSPOLE",
@@ -19,17 +19,32 @@ const companies = [
   {
     name: "Pixel Studios",
     role: "Motion & Video",
-    logo: "/companies/chesney.svg",
+    logo: "/companies/revothasava.svg",
   },
   {
     name: "HealthPlus",
     role: "Product Website & Brand Collateral",
-    logo: "/companies/vce.svg",
+    logo: "/companies/vces.svg",
   },
   {
     name: "TechHive",
     role: "SaaS UI & Dashboard",
-    logo: "/companies/fathermuller.webp",
+    logo: "/companies/fathermuller.jpg",
+  },
+  {
+    name: "TechHive",
+    role: "SaaS UI & Dashboard",
+    logo: "/companies/omkar.svg",
+  },
+  {
+    name: "TechHive",
+    role: "SaaS UI & Dashboard",
+    logo: "/companies/sanjeevani.svg",
+  },
+  {
+    name: "TechHive",
+    role: "SaaS UI & Dashboard",
+    logo: "/companies/Chesney.png",
   },
 ];
 
@@ -58,31 +73,19 @@ const CompaniesSection = () => {
           </div>
         </div>
 
-        {/* Logo / company grid */}
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {/* Logo grid – separate white boxes with orange gradient border */}
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {companies.map((company) => (
             <div
               key={company.name}
-              className="flex items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"
+              className="rounded-2xl bg-[linear-gradient(120deg,#fe5000,#ffb347)] p-[1px] shadow-[0_14px_40px_rgba(15,23,42,0.45)]"
             >
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-700 bg-slate-950">
-                {company.logo ? (
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="h-full w-full object-contain"
-                  />
-                ) : (
-                  <span className="text-xs text-slate-500">
-                    {company.name[0]}
-                  </span>
-                )}
-              </div>
-              <div className="min-w-0">
-                <p className="truncate text-sm font-semibold text-slate-100">
-                  {company.name}
-                </p>
-                <p className="mt-0.5 text-xs text-slate-400">{company.role}</p>
+              <div className="flex items-center justify-center rounded-[1rem] bg-white/95 px-6 py-4 transition-transform duration-200 hover:-translate-y-1">
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="max-h-10 sm:max-h-12 w-auto max-w-full object-contain opacity-90 transition-transform transition-opacity duration-200 hover:opacity-100 hover:scale-105"
+                />
               </div>
             </div>
           ))}
