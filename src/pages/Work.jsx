@@ -1,7 +1,7 @@
 // src/pages/Work.jsx
 import { useEffect, useRef } from "react";
 import CompaniesSection from "../components/CompaniesSection";
-
+import BookPageFlip from "../components/BookPageFlip";
 // smooth infinite horizontal auto-scroller with direction
 const AutoScroller = ({ images, speed = 0.7, direction = "ltr" }) => {
   const containerRef = useRef(null);
@@ -233,7 +233,11 @@ const Work = () => {
         </div>
       </div>
       <CompaniesSection />
+
+     
+     
     </section>
+
   );
 };
 

@@ -28,3 +28,101 @@ html {
   }
 
 }
+
+
+
+/* ===== Base 3D stage ===== */
+.book-3d {
+  perspective: 1600px;
+}
+
+.book-inner {
+  position: relative;
+  height: 380px;          /* tweak height if needed */
+  background: transparent;
+  transform-style: preserve-3d;
+}
+
+/* One sheet = one spread (left + right pages) */
+.book-sheet {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;         /* turns like a book page */
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.45);  /* only shadow */
+}
+
+/* Slight breathing effect for the current spread */
+.book-sheet--active {
+  animation: book-hover 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes book-hover {
+  0% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  100% {
+    transform: translateY(-2px) rotateY(-1deg);
+  }
+}
+
+/* Flipped spreads move to the left like turned pages */
+.book-sheet--flipped {
+  transform: rotateY(-180deg);
+  box-shadow: none;
+}
+
+/* Front & back faces of each sheet */
+.book-side {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* two pages */
+  backface-visibility: hidden;
+}
+
+/* Front: just white under images */
+.book-side--front {
+  background: #ffffff;
+}
+
+/* Back: plain light paper */
+.book-side--back {
+  transform: rotateY(180deg);
+  background: #f3f4f6;
+}
+
+/* Pages */
+.book-page {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image container */
+.book-img-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+/* Main page image (no border, no radius) */
+.book-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Backside paper (when flipped) */
+.book-back-paper {
+  width: 100%;
+  height: 100%;
+  background: #f3f4f6;
+}
+
+/* Responsive tweak */
+@media (max-width: 640px) {
+  .book-inner {
+    height: 260px;
+  }
+}
