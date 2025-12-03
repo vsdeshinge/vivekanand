@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
@@ -9,8 +10,21 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 function App() {
+  useEffect(() => {
+    const cursor = document.getElementById("custom-cursor");
+
+    const move = (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+    };
+
+    window.addEventListener("mousemove", move);
+
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
+      <div id="custom-cursor"></div>
       <Navbar />
       <main className="pt-20">
         <Routes>

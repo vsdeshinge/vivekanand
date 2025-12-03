@@ -1,9 +1,9 @@
 // src/sections/Hero.jsx
 import { useEffect, useState } from "react";
 
-const HERO_DESKTOP_IMAGE = "/hero/hero.png";   // desktop
-const HERO_MOBILE_IMAGE = "/hero/herov.png";   // mobile
-const HERO_BG_SVG = "/hero/herobg.svg";       // transparent SVG
+const HERO_DESKTOP_IMAGE = "/hero/hero.png"; // desktop
+const HERO_MOBILE_IMAGE = "/hero/herov.png"; // mobile
+const HERO_BG_SVG = "/hero/herobg.svg"; // transparent SVG
 
 export default function Hero() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -34,21 +34,21 @@ export default function Hero() {
 
       <div className="relative">
         {/* FULL-WIDTH STICKY TEXT BAR */}
-        <div className="sticky top-16 z-20">
-          <div className="bg-[#020617]/96 backdrop-blur-sm pt-24 md:pt-32 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-5 text-center">
+        <div className="sticky top-0 z-20">
+          <div className="bg-[#020617]/96 backdrop-blur-sm pt-24 md:pt-16 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-5 text-center">
             <p className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-slate-400">
               Web Development • Designing • Event Management • Motion Graphics
             </p>
 
             <div className="mt-3 space-y-1">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="gradient-text">YOU BRING THE </span>
                 <span className="text-white">SPARK</span>
               </h1>
-              <h2 className="text-[22px] md:text-[30px] lg:text-[40px] font-semibold leading-tight">
-                <span className="gradient-text">WE </span>
+              <h2 className="text-[22px] md:text-[30px] lg:text-[40px] font-medium leading-tight">
+                <span className="gradient-text">We </span>
                 <span className="text-white">SHAPE</span>
-                <span className="gradient-text"> THE MOMENT AROUND IT</span>
+                <span className="gradient-text"> the MOMENT Around IT</span>
               </h2>
             </div>
           </div>
@@ -63,15 +63,9 @@ export default function Hero() {
 
             <picture>
               {/* mobile first */}
-              <source
-                srcSet={HERO_MOBILE_IMAGE}
-                media="(max-width: 767px)"
-              />
+              <source srcSet={HERO_MOBILE_IMAGE} media="(max-width: 767px)" />
               {/* desktop */}
-              <source
-                srcSet={HERO_DESKTOP_IMAGE}
-                media="(min-width: 768px)"
-              />
+              <source srcSet={HERO_DESKTOP_IMAGE} media="(min-width: 768px)" />
               <img
                 src={HERO_DESKTOP_IMAGE}
                 alt="Maharshi work showcase"
