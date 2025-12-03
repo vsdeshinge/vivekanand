@@ -3,7 +3,20 @@
 /* Global base */
 body {
   @apply bg-slate-950 text-slate-100 font-sans antialiased;
+  scrollbar-width: none;
 }
+
+/* Hide scrollbar globally but keep scroll working */
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+
 
 /* Brand utilities */
 @layer utilities {
@@ -18,6 +31,14 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, #fe5000, #ffb347);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -125,4 +146,28 @@ html {
   .book-inner {
     height: 260px;
   }
+}
+
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Hide scrollbar - WebKit (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar - Firefox */
+body {
+  scrollbar-width: none;
 }

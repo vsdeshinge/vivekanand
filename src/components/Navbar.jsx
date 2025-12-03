@@ -7,7 +7,7 @@ const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/work", label: "Work" }
+  { to: "/work", label: "Work" },
 ];
 
 const Navbar = () => {
@@ -62,12 +62,17 @@ const Navbar = () => {
             </NavLink>
           ))}
 
+          {/* 🔥 Animated gradient button (desktop) */}
           <NavLink
             to="/contact"
             onClick={closeMenu}
-            className="rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/40 transition hover:shadow-orange-400/60"
+            className="relative inline-flex items-center justify-center overflow-hidden rounded-full px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/40 transition hover:shadow-orange-400/60"
           >
-            Let&apos;s Talk
+            <span
+              className="absolute inset-0 bg-[linear-gradient(110deg,#fe5000,#ffb347,#fe5000)] bg-[length:200%_200%]"
+              style={{ animation: "gradient-move 4s ease-in-out infinite" }}
+            />
+            <span className="relative z-10">Let&apos;s Talk</span>
           </NavLink>
         </nav>
 
@@ -116,12 +121,19 @@ const Navbar = () => {
             </NavLink>
           ))}
 
+          {/* 🔥 Animated gradient button (mobile) */}
           <NavLink
             to="/contact"
             onClick={closeMenu}
-            className="mt-1 block w-full rounded-full bg-brand-gradient px-5 py-2.5 text-center text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/40"
+            className="relative mt-1 block w-full overflow-hidden rounded-full text-center text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/40"
           >
-            Let&apos;s Talk
+            <span
+              className="absolute inset-0 bg-[linear-gradient(110deg,#fe5000,#ffb347,#fe5000)] bg-[length:200%_200%]"
+              style={{ animation: "gradient-move 4s ease-in-out infinite" }}
+            />
+            <span className="relative z-10 block px-5 py-2.5">
+              Let&apos;s Talk
+            </span>
           </NavLink>
         </div>
       </nav>

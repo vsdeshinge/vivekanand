@@ -2,8 +2,9 @@
 import { useEffect, useRef } from "react";
 import CompaniesSection from "../components/CompaniesSection";
 import BookPageFlip from "../components/BookPageFlip";
+
 // smooth infinite horizontal auto-scroller with direction
-const AutoScroller = ({ images, speed = 0.7, direction = "ltr" }) => {
+const AutoScroller = ({ images, speed = 0.7, direction = "ltr", noCrop = false }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -65,9 +66,17 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr" }) => {
       {trackImages.map((src, idx) => (
         <div
           key={`${src}-${idx}`}
-          className="flex-shrink-0 w-64 h-40 md:w-80 md:h-48 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70"
+          className="flex-shrink-0 w-64 md:w-80 rounded-2xl flex items-center justify-center overflow-hidden"
         >
-          <img src={src} alt="" className="h-full w-full object-cover" />
+          <img
+            src={src}
+            alt=""
+            className={
+              noCrop
+                ? "max-h-40 md:max-h-48 w-auto object-contain"
+                : "h-40 md:h-48 w-full object-cover"
+            }
+          />
         </div>
       ))}
     </div>
@@ -87,8 +96,7 @@ const Work = () => {
     "/branding/melangeMockup.jpg",
     "/branding/anokhipipes.jpg",
     "/branding/maye.jpg",
-    "/branding/sanjeevanimockup.jpg"
-    
+    "/branding/sanjeevanimockup.jpg",
   ];
 
   const motionImages = [
@@ -98,8 +106,8 @@ const Work = () => {
   ];
 
   const eventsImages = [
-    "/works/events/event1.jpg",
-    "/works/events/event2.jpg",
+    "/exhibition/reonskils_exhibition.png",
+    "/exhibition/TIE.JPG",
     "/works/events/event3.jpg",
   ];
 
@@ -229,15 +237,18 @@ const Work = () => {
             </div>
           </div>
 
-          <AutoScroller images={eventsImages} speed={0.6} direction="rtl" />
+          {/* preserve ratio, no cropping, no border/bg */}
+          <AutoScroller
+            images={eventsImages}
+            speed={0.6}
+            direction="rtl"
+            noCrop
+          />
         </div>
       </div>
+
       <CompaniesSection />
-
-     
-     
     </section>
-
   );
 };
 
