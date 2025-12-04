@@ -1,26 +1,35 @@
 // src/sections/Hero.jsx
 import { useEffect, useState } from "react";
 
-const HERO_DESKTOP_IMAGE = "/hero/hero.png"; // desktop
-const HERO_MOBILE_IMAGE = "/hero/herov.png"; // mobile
+const HERO_IMG_1 = "/hero/hero2.png"; // left/top image
+const HERO_IMG_2 = "/hero/hero1.png"; // right/bottom image
 const HERO_BG_SVG = "/hero/herobg.svg"; // transparent SVG
 
 export default function Hero() {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    // preload both versions
-    const desktop = new Image();
-    const mobile = new Image();
+    // preload both hero images
+    const img1 = new Image();
+    const img2 = new Image();
 
-    desktop.src = HERO_DESKTOP_IMAGE;
-    mobile.src = HERO_MOBILE_IMAGE;
+    img1.src = HERO_IMG_1;
+    img2.src = HERO_IMG_2;
 
-    desktop.onload = mobile.onload = () => setImageLoaded(true);
+    let loaded = 0;
+    const handleLoad = () => {
+      loaded += 1;
+      if (loaded === 2) {
+        setImagesLoaded(true);
+      }
+    };
+
+    img1.onload = handleLoad;
+    img2.onload = handleLoad;
 
     return () => {
-      desktop.onload = null;
-      mobile.onload = null;
+      img1.onload = null;
+      img2.onload = null;
     };
   }, []);
 
@@ -54,26 +63,34 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* BIG IMAGE BELOW TEXT (hero.png desktop, herov.png mobile) */}
+        {/* TWO HERO IMAGES BELOW TEXT */}
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 pt-8 pb-20">
-          <div className="relative overflow-hidden rounded-3xl bg-[#020617]/80 min-h-[60vh] flex items-center justify-center">
-            {!imageLoaded && (
+          <div className="relative overflow-hidden  bg-[#020617]/80 min-h-[40vh]">
+            {/* shimmer placeholder while loading */}
+            {!imagesLoaded && (
               <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800" />
             )}
 
-            <picture>
-              {/* mobile first */}
-              <source srcSet={HERO_MOBILE_IMAGE} media="(max-width: 767px)" />
-              {/* desktop */}
-              <source srcSet={HERO_DESKTOP_IMAGE} media="(min-width: 768px)" />
-              <img
-                src={HERO_DESKTOP_IMAGE}
-                alt="Maharshi work showcase"
-                className={`w-full h-auto transition-opacity duration-700 ${
-                  imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </picture>
+            <div
+              className={`grid gap-3 md:gap-4 md:grid-cols-2 transition-opacity duration-700 ${
+                imagesLoaded ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div className="relative">
+                <img
+                  src={HERO_IMG_1}
+                  alt="Maharshi work showcase part 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative">
+                <img
+                  src={HERO_IMG_2}
+                  alt="Maharshi work showcase part 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

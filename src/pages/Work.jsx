@@ -66,15 +66,15 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr", noCrop = false }
       {trackImages.map((src, idx) => (
         <div
           key={`${src}-${idx}`}
-          className="flex-shrink-0 w-64 md:w-80 rounded-2xl flex items-center justify-center overflow-hidden"
+          className="flex-shrink-0 w-[384px] h-[256px] flex items-center justify-center overflow-hidden bg-black/30"
         >
           <img
             src={src}
             alt=""
             className={
               noCrop
-                ? "max-h-40 md:max-h-48 w-auto object-contain"
-                : "h-40 md:h-48 w-full object-cover"
+                ? "w-full h-full object-contain"
+                : "w-full h-full object-cover"
             }
           />
         </div>
@@ -86,10 +86,11 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr", noCrop = false }
 const Work = () => {
   // 🔁 REPLACE these with your real image paths later
   const webImages = [
-    "/branding/melangeMockup.jpg",
-    "/branding/anokhipipes.jpg",
-    "/works/web/web3.jpg",
-    "/works/web/web4.jpg",
+    "/web/fashionMockup.png",
+    "/web/chapristoreMockup.png",
+    "/web/posspoleMockup.png",
+    "/web/reonMockup.png",
+    "/web/vceMockup.png",
   ];
 
   const designImages = [
@@ -237,7 +238,7 @@ const Work = () => {
             </div>
           </div>
 
-          {/* preserve ratio, no cropping, no border/bg */}
+          {/* preserve ratio, no cropping */}
           <AutoScroller
             images={eventsImages}
             speed={0.6}
