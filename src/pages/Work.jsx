@@ -4,7 +4,12 @@ import CompaniesSection from "../components/CompaniesSection";
 import BookPageFlip from "../components/BookPageFlip";
 
 // smooth infinite horizontal auto-scroller with direction
-const AutoScroller = ({ images, speed = 0.7, direction = "ltr", noCrop = false }) => {
+const AutoScroller = ({
+  items,
+  speed = 0.7,
+  direction = "ltr",
+  noCrop = false,
+}) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -16,29 +21,23 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr", noCrop = false }
 
     const setupAndStart = () => {
       if (!el) return;
-      const loopWidth = el.scrollWidth / 2; // because we duplicate images
+      const loopWidth = el.scrollWidth / 2;
 
       if (!loopWidth) return;
 
-      // start position: ltr from 0, rtl from end
       scrollPos = direction === "rtl" ? loopWidth : 0;
       el.scrollLeft = scrollPos;
 
       const step = () => {
         if (!el) return;
-
         const loopWidthNow = el.scrollWidth / 2 || loopWidth;
 
         if (direction === "rtl") {
           scrollPos -= speed;
-          if (scrollPos <= 0) {
-            scrollPos = loopWidthNow;
-          }
+          if (scrollPos <= 0) scrollPos = loopWidthNow;
         } else {
           scrollPos += speed;
-          if (scrollPos >= loopWidthNow) {
-            scrollPos = 0;
-          }
+          if (scrollPos >= loopWidthNow) scrollPos = 0;
         }
 
         el.scrollLeft = scrollPos;
@@ -49,73 +48,123 @@ const AutoScroller = ({ images, speed = 0.7, direction = "ltr", noCrop = false }
     };
 
     setupAndStart();
+    return () => frameId && cancelAnimationFrame(frameId);
+  }, [items.length, speed, direction]);
 
-    return () => {
-      if (frameId) cancelAnimationFrame(frameId);
-    };
-  }, [images.length, speed, direction]);
-
-  // duplicate images so it feels continuous
-  const trackImages = [...images, ...images];
+  const trackItems = [...items, ...items];
 
   return (
     <div
       ref={containerRef}
       className="no-scrollbar flex gap-4 overflow-x-auto py-3"
     >
-      {trackImages.map((src, idx) => (
-        <div
-          key={`${src}-${idx}`}
-          className="flex-shrink-0 w-[384px] h-[256px] flex items-center justify-center overflow-hidden bg-black/30"
-        >
-          <img
-            src={src}
-            alt=""
-            className={
-              noCrop
-                ? "w-full h-full object-contain"
-                : "w-full h-full object-cover"
-            }
-          />
-        </div>
-      ))}
+      {trackItems.map((item, idx) => {
+        const key = `${item.src}-${idx}`;
+        const clickable = !!item.href;
+
+        const content = (
+          <div className="relative w-full h-full group">
+            {/* IMAGE */}
+            <img
+              src={item.src}
+              alt=""
+              className={
+                noCrop
+                  ? "w-full h-full object-contain"
+                  : "w-full h-full object-cover"
+              }
+            />
+
+            {/* VISIT ARROW */}
+            {clickable && (
+              <div className="pointer-events-none absolute inset-0 flex items-end justify-end p-3">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="rounded-full bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-slate-100 flex items-center gap-1">
+                    <span>Visit</span>
+                    <span>↗</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+
+        return clickable ? (
+          <a
+            key={key}
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-shrink-0 w-[384px] h-[256px] bg-black/30 overflow-hidden"
+          >
+            {content}
+          </a>
+        ) : (
+          <div
+            key={key}
+            className="flex-shrink-0 w-[384px] h-[256px] bg-black/30 overflow-hidden"
+          >
+            {content}
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 const Work = () => {
-  // 🔁 REPLACE these with your real image paths later
-  const webImages = [
-    "/web/fashionMockup.png",
-    "/web/chapristoreMockup.png",
-    "/web/posspoleMockup.png",
-    "/web/reonMockup.png",
-    "/web/vceMockup.png",
+  // ⭐ NOW ITEMS HAVE href FOR WEB SECTION ⭐
+  const webItems = [
+    {
+      src: "/web/fashionMockup.png",
+      href: "https://your-site-1.com",
+    },
+    {
+      src: "/web/chapristoreMockup.png",
+      href: "https://your-site-2.com",
+    },
+    {
+      src: "/web/posspoleMockup.png",
+      href: "https://your-site-3.com",
+    },
+    {
+      src: "/web/reonMockup.png",
+      href: "https://your-site-4.com",
+    },
+    {
+      src: "/web/vceMockup.png",
+      href: "https://your-site-5.com",
+    },
   ];
 
-  const designImages = [
-    "/branding/melangeMockup.jpg",
-    "/branding/anokhipipes.jpg",
-    "/branding/maye.jpg",
-    "/branding/sanjeevanimockup.jpg",
+  // other sections remain images only
+  const designItems = [
+    { src: "/branding/melangeMockup.jpg" },
+    { src: "/branding/revothsavamockup.jpg" },
+    { src: "/branding/fashionMockup.jpg" },
+    { src: "/branding/reonskillsMockup.jpg" },
+    { src: "/branding/mug_design.jpg" },
+
+    { src: "/branding/sanjeevanimockup.jpg" },
   ];
 
-  const motionImages = [
-    "/works/motion/motion1.jpg",
-    "/works/motion/motion2.jpg",
-    "/works/motion/motion3.jpg",
+  const motionItems = [
+    { src: "/branding/maye.jpg" },
+    { src: "/works/motion/motion1.jpg" },
+    { src: "/works/motion/motion2.jpg" },
+    { src: "/works/motion/motion3.jpg" },
   ];
 
-  const eventsImages = [
-    "/exhibition/reonskils_exhibition.png",
-    "/exhibition/TIE.JPG",
-    "/works/events/event3.jpg",
+  const eventsItems = [
+    { src: "/exhibition/reonskils_exhibition.png" },
+    { src: "/exhibition/TIE.JPG" },
+    { src: "/works/events/event3.jpg" },
   ];
 
   return (
     <section id="work" className="min-h-[80vh] px-4 py-16 pt-8 md:px-0">
       <div className="mx-auto max-w-6xl space-y-12">
-        {/* Heading */}
+        {/* HEADING */}
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
             Work
@@ -123,124 +172,55 @@ const Work = () => {
           <h1 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
             100+ clients across{" "}
             <span className="text-brand-gradient">
-              web, design, motion &amp; events.
+              web, design, motion & events.
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-slate-300 md:text-base">
-            These are just slices of the kind of work I&apos;ve done. Each
-            horizontal strip is a different vertical – you can drag or let it
-            auto-scroll.
+            These are just slices of the work. Each horizontal strip is a
+            different category — drag or let it auto-scroll.
           </p>
         </div>
 
-        {/* Web Design / Dev */}
+        {/* WEB SECTION WITH CLICKABLE CARDS */}
         <div className="space-y-3">
-          <div className="flex items-baseline justify-between gap-4">
+          <div className="flex items-baseline justify-between">
             <div>
               <h2 className="font-display text-xl font-semibold text-white">
-                Web Design &amp; Development
+                Web Design & Development
               </h2>
               <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
                 Websites • Dashboards • Product pages
               </p>
             </div>
-            <div className="hidden flex-col items-end gap-1 text-xs md:flex">
-              <span className="text-slate-400">
-                Drag sideways or watch it move →
-              </span>
-              <button
-                type="button"
-                className="text-[11px] text-slate-300 underline underline-offset-4 hover:text-white"
-              >
-                View more
-              </button>
-            </div>
+            <span className="hidden md:block text-xs text-slate-400">
+              Click tile to visit site →
+            </span>
           </div>
 
-          <AutoScroller images={webImages} speed={0.9} direction="ltr" />
+          <AutoScroller items={webItems} speed={0.9} direction="ltr" />
         </div>
 
-        {/* Design / Branding */}
+        {/* OTHER SECTIONS (normal images) */}
         <div className="space-y-3">
-          <div className="flex items-baseline justify-between gap-4">
-            <div>
-              <h2 className="font-display text-xl font-semibold text-white">
-                Design &amp; Branding
-              </h2>
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Logos • Social creatives • Print
-              </p>
-            </div>
-            <div className="hidden flex-col items-end gap-1 text-xs md:flex">
-              <span className="text-slate-400">
-                Identity, campaigns &amp; brand kits
-              </span>
-              <button
-                type="button"
-                className="text-[11px] text-slate-300 underline underline-offset-4 hover:text-white"
-              >
-                View more
-              </button>
-            </div>
-          </div>
-
-          <AutoScroller images={designImages} speed={0.7} direction="rtl" />
+          <h2 className="font-display text-xl font-semibold text-white">
+            Design & Branding
+          </h2>
+          <AutoScroller items={designItems} speed={0.7} direction="rtl" />
         </div>
 
-        {/* Motion / Video */}
         <div className="space-y-3">
-          <div className="flex items-baseline justify-between gap-4">
-            <div>
-              <h2 className="font-display text-xl font-semibold text-white">
-                Motion &amp; Video
-              </h2>
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Promos • Reels • Event edits
-              </p>
-            </div>
-            <div className="hidden flex-col items-end gap-1 text-xs md:flex">
-              <span className="text-slate-400">
-                Built with After Effects &amp; Premiere Pro
-              </span>
-              <button
-                type="button"
-                className="text-[11px] text-slate-300 underline underline-offset-4 hover:text-white"
-              >
-                View more
-              </button>
-            </div>
-          </div>
-
-          <AutoScroller images={motionImages} speed={0.8} direction="ltr" />
+          <h2 className="font-display text-xl font-semibold text-white">
+            Motion & Video
+          </h2>
+          <AutoScroller items={motionItems} speed={0.8} direction="ltr" />
         </div>
 
-        {/* Events / Exhibitions */}
         <div className="space-y-3">
-          <div className="flex items-baseline justify-between gap-4">
-            <div>
-              <h2 className="font-display text-xl font-semibold text-white">
-                Event &amp; Exhibition Fabrication
-              </h2>
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Stalls • Experiences • Installations
-              </p>
-            </div>
-            <div className="hidden flex-col items-end gap-1 text-xs md:flex">
-              <span className="text-slate-400">
-                Real spaces where people click photos
-              </span>
-              <button
-                type="button"
-                className="text-[11px] text-slate-300 underline underline-offset-4 hover:text-white"
-              >
-                View more
-              </button>
-            </div>
-          </div>
-
-          {/* preserve ratio, no cropping */}
+          <h2 className="font-display text-xl font-semibold text-white">
+            Event & Exhibition
+          </h2>
           <AutoScroller
-            images={eventsImages}
+            items={eventsItems}
             speed={0.6}
             direction="rtl"
             noCrop
