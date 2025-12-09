@@ -44,7 +44,7 @@ const companies = [
   {
     name: "TechHive",
     role: "SaaS UI & Dashboard",
-    logo: "/companies/Chesney.png",
+    logo: "/companies/aarogyaseva.webp",
   },
 ];
 
@@ -78,9 +78,9 @@ const CompaniesSection = () => {
           {companies.map((company) => (
             <div
               key={company.name}
-              className="rounded-2xl bg-[linear-gradient(120deg,#fe5000,#ffb347)] p-[1px] shadow-[0_14px_40px_rgba(15,23,42,0.45)]"
+              className="  p-[1px] shadow-[0_14px_40px_rgba(15,23,42,0.45)]"
             >
-              <div className="flex items-center justify-center rounded-[1rem] bg-white/95 px-6 py-4 transition-transform duration-200 hover:-translate-y-1">
+              <div className="flex items-center justify-center  bg-white px-6 py-4 transition-transform duration-200 ">
                 <img
                   src={company.logo}
                   alt={company.name}
