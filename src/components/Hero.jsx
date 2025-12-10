@@ -42,8 +42,8 @@ export default function Hero() {
       </div>
 
       <div className="relative">
-        {/* FULL-WIDTH STICKY TEXT BAR */}
-        <div className="sticky top-0 z-20">
+        {/* FULL-WIDTH TEXT BAR (NO STICKY) */}
+        <div className="z-20">
           <div className="bg-[#020617]/96 backdrop-blur-sm pt-24 md:pt-16 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-5 text-center">
             <p className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-slate-400">
               Web Development • Designing • Event Management • Motion Graphics
@@ -51,21 +51,44 @@ export default function Hero() {
 
             <div className="mt-3 space-y-1">
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                <span className="gradient-text">YOU BRING THE </span>
-                <span className="text-white">SPARK</span>
+                <span className="gradient-text">Thinking made </span>
+                <span className="text-white">visible</span>
               </h1>
-              <h2 className="text-[22px] md:text-[30px] lg:text-[40px] font-medium leading-tight">
-                <span className="gradient-text">We </span>
-                <span className="text-white">SHAPE</span>
-                <span className="gradient-text"> the MOMENT Around IT</span>
-              </h2>
+
+              <div className="relative w-full flex justify-center mt-2">
+                <h2
+                  className="
+                    text-[22px] md:text-[30px] lg:text-[40px]
+                    font-medium leading-tight
+                    transform -translate-x-2 md:-translate-x-4
+                    relative
+                  "
+                >
+                  <span className="text-white">Visible </span>
+
+                  {/* Right padding added here */}
+                  <span className="text-white pr-6 md:pr-10 lg:pr-16 inline-block">
+                    MADE
+                  </span>
+
+                  {/* Signature word */}
+                  <span
+                    className="
+                      gradient-text corinthia-bold 
+                      text-[40px] md:text-[60px] lg:text-[100px]
+                    "
+                  >
+                    Available
+                  </span>
+                </h2>
+              </div>
             </div>
           </div>
         </div>
 
         {/* TWO HERO IMAGES BELOW TEXT */}
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 pt-8 pb-20">
-          <div className="relative overflow-hidden  bg-[#020617]/80 min-h-[40vh]">
+          <div className="relative overflow-hidden bg-[#020617]/80 min-h-[40vh]">
             {/* shimmer placeholder while loading */}
             {!imagesLoaded && (
               <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800" />

@@ -199,3 +199,19 @@ body {
   opacity: 1 !important;
   transform: translateX(0) translateY(0) !important;
 }
+
+
+
+/* Glass Liquid animation in hero page*/
+
+.corinthia-regular {
+  font-family: "Corinthia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.corinthia-bold {
+  font-family: "Corinthia", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
