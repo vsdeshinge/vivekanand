@@ -21,11 +21,11 @@ body::-webkit-scrollbar {
 /* Brand utilities */
 @layer utilities {
   .bg-brand-gradient {
-    @apply bg-gradient-to-r from-[#fe5000] to-[#ffb347];
+    @apply bg-gradient-to-r from-[#ffb347] to-[#fe5000];
   }
 
   .text-brand-gradient {
-    @apply bg-gradient-to-r from-[#fe5000] to-[#ffb347] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#ffb347] to-[#fe5000] bg-clip-text text-transparent;
   }
 }
 html {
@@ -33,7 +33,7 @@ html {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #fe5000, #ffb347);
+  background: linear-gradient(90deg,  #ffb347,#fe5000);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -202,7 +202,7 @@ body {
 
 
 
-/* Glass Liquid animation in hero page*/
+/* Available Text*/
 
 .corinthia-regular {
   font-family: "Corinthia", cursive;
@@ -214,4 +214,25 @@ body {
   font-family: "Corinthia", cursive;
   font-weight: 500;
   font-style: normal;
+}
+@keyframes signatureReveal {
+  0% {
+    clip-path: inset(0 100% 0 0); /* fully hidden from right */
+    transform: translateX(12px) skewX(-10deg);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* fully visible */
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+.signature-animate {
+  display: inline-block;
+  animation: signatureReveal 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  will-change: clip-path, transform, opacity;
 }

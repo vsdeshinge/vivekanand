@@ -53,10 +53,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section
-      id="services"
-      className="min-h-[80vh] px-4 py-16 pt-8 md:px-0"
-    >
+    <section id="services" className="min-h-[80vh] px-4 py-16 pt-8 md:px-0">
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <div className="max-w-2xl">
@@ -64,13 +61,16 @@ const Services = () => {
             Services
           </p>
           <h1 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
-            One person,{" "}
-            <span className="text-brand-gradient">four strong verticals.</span>
+            One team,{" "}
+            <span className="text-brand-gradient">
+              from code to brand to stage.
+            </span>
           </h1>
+
           <p className="mt-4 text-sm text-slate-300 md:text-base">
-            I don&apos;t just build websites or just design. I help you connect the
-            whole story – from digital presence and visuals to video and on-ground
-            event experiences.
+            We don&apos;t just build websites or just design. We help you connect
+            the whole story – from digital presence and visuals to video and
+            on-ground event experiences.
           </p>
         </div>
 

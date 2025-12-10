@@ -48,40 +48,39 @@ export default function Hero() {
             Web Development • Designing • Event Management • Motion Graphics
           </p>
 
-          <div className="mt-3 space-y-1">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              <span className="gradient-text">Thinking made </span>
-              <span className="text-white">visible</span>
-            </h1>
+         <div className="mt-1">
+  <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+    <span className="gradient-text">Thinking made </span>
+    <span className="text-white">visible</span>
+  </h1>
 
-            <div className="relative w-full flex justify-center mt-2">
-              <h2
-                className="
-                  text-[22px] md:text-[30px] lg:text-[40px]
-                  font-medium leading-tight
-                  transform -translate-x-2 md:-translate-x-4
-                  relative
-                "
-              >
-                <span className="text-white">Visible </span>
+  <div className="relative w-full flex justify-center mt-0">
+    <h2
+      className="
+        text-[22px] md:text-[30px] lg:text-[72px]
+        font-medium leading-tight
+        transform -translate-x-2 md:-translate-x-10
+        relative
+        -mt-1 md:-mt-2
+      "
+    >
+      <span className="text-white">Visible </span>
 
-                {/* Right padding added here */}
-                <span className="text-white pr-6 md:pr-10 lg:pr-16 inline-block">
-                  MADE
-                </span>
+      <span className="text-white pr-4 inline-block">MADE</span>
 
-                {/* Signature word */}
-                <span
-                  className="
-                    gradient-text corinthia-bold 
-                    text-[40px] md:text-[60px] lg:text-[100px]
-                  "
-                >
-                  Available
-                </span>
-              </h2>
-            </div>
-          </div>
+      <span
+        className="
+          gradient-text corinthia-bold 
+          text-[40px] md:text-[60px] lg:text-[125px]
+          -ml-[40px] signature-animate
+        "
+      >
+        Available
+      </span>
+    </h2>
+  </div>
+</div>
+
         </div>
 
         {/* TWO HERO IMAGES BELOW TEXT */}

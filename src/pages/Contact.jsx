@@ -2,10 +2,7 @@
 
 const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="min-h-[80vh] px-4 py-16 pt-8 md:px-0"
-    >
+    <section id="contact" className="min-h-[80vh] px-4 py-16 pt-8 md:px-0">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row">
         {/* LEFT: Intro + contact info */}
         <div className="md:w-5/12 space-y-6">
@@ -20,8 +17,8 @@ const Contact = () => {
             </h1>
             <p className="mt-4 text-sm text-slate-300 md:text-base">
               Whether you need a website, a campaign, motion visuals, or a full
-              exhibition experience, tell me what you&apos;re planning and I&apos;ll get
-              back with ideas, timelines and next steps.
+              exhibition experience, tell me what you&apos;re planning and
+              I&apos;ll get back with ideas, timelines and next steps.
             </p>
           </div>
 
@@ -30,16 +27,33 @@ const Contact = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
               Direct contact
             </p>
+
             <div className="space-y-1 text-sm text-slate-200">
               <p>
-                <span className="text-slate-400">Email:</span>{" "}
-                <span className="font-medium text-slate-100">
-                  maharshivivekanands@gmail.com
-                </span>
+                <span className="text-slate-400">Contact No:</span>{" "}
+                <a
+                  href="tel:+916361588219"
+                  className="font-medium text-slate-100 hover:text-slate-50 hover:underline"
+                >
+                  +91 6361588219
+                </a>
               </p>
+
+              <p>
+                <span className="text-slate-400">Email:</span>{" "}
+                <a
+                  href="mailto:maharshivivekanands@gmail.com"
+                  className="font-medium text-slate-100 hover:text-slate-50 hover:underline"
+                >
+                  maharshivivekanands@gmail.com
+                </a>
+              </p>
+
               <p>
                 <span className="text-slate-400">Based in:</span>{" "}
-                <span className="font-medium text-slate-100">India</span>
+                <span className="font-medium text-slate-100">
+                  Bengaluru, India
+                </span>
               </p>
             </div>
 
