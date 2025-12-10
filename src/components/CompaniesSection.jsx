@@ -58,7 +58,7 @@ const CompaniesSection = () => {
             Companies
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
-            Brands &amp; teams I&apos;ve{" "}
+            Brands &amp; teams We&apos;ve{" "}
             <span className="text-brand-gradient">worked with.</span>
           </h2>
           <p className="mt-4 text-sm text-slate-300 md:text-base">
@@ -73,14 +73,14 @@ const CompaniesSection = () => {
           </div>
         </div>
 
-        {/* Logo grid – separate white boxes with orange gradient border */}
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {companies.map((company) => (
+        {/* Logo grid – separate white boxes with consistent size */}
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-3 opacity-75">
+          {companies.map((company, idx) => (
             <div
-              key={company.name}
-              className="  p-[1px] shadow-[0_14px_40px_rgba(15,23,42,0.45)]"
+              key={`${company.name}-${idx}`}
+              className=" p-[1px] shadow-[0_14px_40px_rgba(15,23,42,0.45)] bg-gradient-to-br from-orange-500/80 via-amber-400/80 to-orange-300/80"
             >
-              <div className="flex items-center justify-center  bg-white px-6 py-4 transition-transform duration-200 ">
+              <div className="flex h-24 sm:h-28 items-center justify-center  bg-white px-4 sm:px-6 transition-transform duration-200">
                 <img
                   src={company.logo}
                   alt={company.name}

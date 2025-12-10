@@ -25,6 +25,7 @@ const AutoScroller = ({
 
       if (!loopWidth) return;
 
+      // start from left or right depending on direction
       scrollPos = direction === "rtl" ? loopWidth : 0;
       el.scrollLeft = scrollPos;
 
@@ -59,28 +60,27 @@ const AutoScroller = ({
       className="no-scrollbar flex gap-4 overflow-x-auto py-3"
     >
       {trackItems.map((item, idx) => {
-        const key = `${item.src}-${idx}`;
+        const key = `${item.src || item.href || "item"}-${idx}`;
         const clickable = !!item.href;
+
+        const mediaClass = noCrop
+          ? "w-full h-full object-contain"
+          : "w-full h-full object-cover";
+
+        // simple: only images here
+        const media = (
+          <img src={item.src} alt={item.alt || ""} className={mediaClass} />
+        );
 
         const content = (
           <div className="relative w-full h-full group">
-            {/* IMAGE */}
-            <img
-              src={item.src}
-              alt=""
-              className={
-                noCrop
-                  ? "w-full h-full object-contain"
-                  : "w-full h-full object-cover"
-              }
-            />
+            {media}
 
-            {/* VISIT ARROW */}
             {clickable && (
               <div className="pointer-events-none absolute inset-0 flex items-end justify-end p-3">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <div className="rounded-full bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-slate-100 flex items-center gap-1">
-                    <span>Visit</span>
+                    <span>{item.ctaLabel || "Visit"}</span>
                     <span>↗</span>
                   </div>
                 </div>
@@ -89,21 +89,21 @@ const AutoScroller = ({
           </div>
         );
 
+        const wrapperClasses =
+          "flex-shrink-0 w-[384px] h-[256px] bg-black/30 overflow-hidden";
+
         return clickable ? (
           <a
             key={key}
             href={item.href}
             target="_blank"
             rel="noreferrer"
-            className="flex-shrink-0 w-[384px] h-[256px] bg-black/30 overflow-hidden"
+            className={wrapperClasses}
           >
             {content}
           </a>
         ) : (
-          <div
-            key={key}
-            className="flex-shrink-0 w-[384px] h-[256px] bg-black/30 overflow-hidden"
-          >
+          <div key={key} className={wrapperClasses}>
             {content}
           </div>
         );
@@ -113,52 +113,77 @@ const AutoScroller = ({
 };
 
 const Work = () => {
-  // ⭐ NOW ITEMS HAVE href FOR WEB SECTION ⭐
+  // WEB ITEMS (clickable)
   const webItems = [
     {
       src: "/web/fashionMockup.png",
       href: "https://your-site-1.com",
+      alt: "Fashion mockup website",
     },
     {
       src: "/web/chapristoreMockup.png",
       href: "https://your-site-2.com",
+      alt: "Chapri Store mockup",
     },
     {
       src: "/web/posspoleMockup.png",
       href: "https://your-site-3.com",
+      alt: "Posspole website mockup",
     },
     {
       src: "/web/reonMockup.png",
       href: "https://your-site-4.com",
+      alt: "Reon Skills website mockup",
     },
     {
       src: "/web/vceMockup.png",
       href: "https://your-site-5.com",
+      alt: "VCE website mockup",
     },
   ];
 
-  // other sections remain images only
+  // DESIGN ITEMS (images)
   const designItems = [
-    { src: "/branding/melangeMockup.jpg" },
-    { src: "/branding/revothsavamockup.jpg" },
-    { src: "/branding/fashionMockup.jpg" },
-    { src: "/branding/reonskillsMockup.jpg" },
-    { src: "/branding/mug_design.jpg" },
-
-    { src: "/branding/sanjeevanimockup.jpg" },
+    { src: "/branding/melangeMockup.jpg", alt: "Melange branding mockup" },
+    {
+      src: "/branding/revothsavamockup.jpg",
+      alt: "Revothsava branding mockup",
+    },
+    { src: "/branding/fashionMockup.jpg", alt: "Fashion branding mockup" },
+    {
+      src: "/branding/reonskillsMockup.jpg",
+      alt: "Reon Skills branding mockup",
+    },
+    { src: "/branding/mug_design.jpg", alt: "Custom mug design" },
+    {
+      src: "/branding/sanjeevanimockup.jpg",
+      alt: "Sanjeevani branding mockup",
+    },
   ];
 
+  // MOTION ITEMS – thumbnail that opens Google Drive video
   const motionItems = [
-    { src: "/branding/maye.jpg" },
-    { src: "/works/motion/motion1.jpg" },
-    { src: "/works/motion/motion2.jpg" },
-    { src: "/works/motion/motion3.jpg" },
+    {
+      src: "/branding/maye.jpg", // your thumbnail
+      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      alt: "Motion video thumbnail",
+      ctaLabel: "Watch",
+    },
+    {
+      src: "/branding/reonskills.jpg", // your thumbnail
+      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      alt: "Motion video thumbnail",
+      ctaLabel: "Watch",
+    },
   ];
 
+  // EVENTS ITEMS (images)
   const eventsItems = [
-    { src: "/exhibition/reonskils_exhibition.png" },
-    { src: "/exhibition/TIE.JPG" },
-    { src: "/works/events/event3.jpg" },
+    {
+      src: "/exhibition/reonskils_exhibition.png",
+      alt: "Reon Skills exhibition booth",
+    },
+    { src: "/exhibition/TIE.JPG", alt: "TIE event setup" },
   ];
 
   return (
@@ -200,7 +225,7 @@ const Work = () => {
           <AutoScroller items={webItems} speed={0.9} direction="ltr" />
         </div>
 
-        {/* OTHER SECTIONS (normal images) */}
+        {/* DESIGN & BRANDING */}
         <div className="space-y-3">
           <h2 className="font-display text-xl font-semibold text-white">
             Design & Branding
@@ -208,6 +233,7 @@ const Work = () => {
           <AutoScroller items={designItems} speed={0.7} direction="rtl" />
         </div>
 
+        {/* MOTION & VIDEO – thumbnail linking to Drive */}
         <div className="space-y-3">
           <h2 className="font-display text-xl font-semibold text-white">
             Motion & Video
@@ -215,6 +241,7 @@ const Work = () => {
           <AutoScroller items={motionItems} speed={0.8} direction="ltr" />
         </div>
 
+        {/* EVENT & EXHIBITION */}
         <div className="space-y-3">
           <h2 className="font-display text-xl font-semibold text-white">
             Event & Exhibition

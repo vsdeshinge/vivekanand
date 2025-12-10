@@ -15,7 +15,7 @@ function App() {
       <Navbar />
 
       {/* push content below fixed navbar */}
-      <main className="pt-20 md:pt-24">
+      <main className="pt-18 md:pt-30">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

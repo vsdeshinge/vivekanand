@@ -36,10 +36,10 @@ const TestimonialsSection = () => {
           <h2 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
             What clients{" "}
             <span className="text-brand-gradient">say about working</span> with
-            me.
+            Us.
           </h2>
           <p className="mt-4 text-sm text-slate-300 md:text-base">
-            I work with founders, marketing teams and event coordinators. Here&apos;s
+            We work with founders, marketing teams and event coordinators. Here&apos;s
             some feedback from people I&apos;ve collaborated with.
           </p>
         </div>

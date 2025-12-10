@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     // HARD FIXED NAVBAR, ALWAYS STUCK TO TOP
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
+    <header className="fixed top-0  left-0 right-0 z-50  border-b border-white/10 bg-slate-950/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         {/* Left: Logo + wordmark */}
         <NavLink to="/" onClick={closeMenu} className="flex items-center gap-4">
@@ -65,7 +65,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             onClick={closeMenu}
-            className="rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/40 transition hover:shadow-orange-400/60"
+            className="rounded-full  bg-brand-gradient px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/40 transition hover:shadow-orange-400/60"
           >
             Let&apos;s Talk
           </NavLink>
@@ -75,7 +75,7 @@ const Navbar = () => {
         <button
           type="button"
           onClick={toggle}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-600/70 md:hidden"
+          className="inline-flex h-10  w-10 items-center justify-center rounded-full border border-slate-600/70 md:hidden"
           aria-label="Toggle navigation"
         >
           <div className="space-y-1.5">
