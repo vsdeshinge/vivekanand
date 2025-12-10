@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
@@ -7,7 +6,7 @@ const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/work", label: "Work" }
+  { to: "/work", label: "Work" },
 ];
 
 const Navbar = () => {
@@ -27,7 +26,8 @@ const Navbar = () => {
     }`;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
+    // HARD FIXED NAVBAR, ALWAYS STUCK TO TOP
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         {/* Left: Logo + wordmark */}
         <NavLink to="/" onClick={closeMenu} className="flex items-center gap-4">
@@ -98,7 +98,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown (also fixed because it's inside header) */}
       <nav
         className={`md:hidden overflow-hidden border-t border-slate-800/80 bg-slate-950/95 transition-all duration-200 ${
           isOpen ? "max-h-72 opacity-100" : "max-h-0 opacity-0"

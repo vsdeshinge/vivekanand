@@ -10,12 +10,12 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 function App() {
-  
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-    
       <Navbar />
-      <main className="pt-20">
+
+      {/* push content below fixed navbar */}
+      <main className="pt-20 md:pt-24">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -24,6 +24,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
       <Footer />
     </div>
   );
