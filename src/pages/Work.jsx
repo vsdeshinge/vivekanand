@@ -175,6 +175,33 @@ const Work = () => {
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
+    {
+      src: "/branding/posspole.png", // your thumbnail
+      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      alt: "Motion video thumbnail",
+      ctaLabel: "Watch",
+    },
+    {
+      src: "/branding/newYear.png", // your thumbnail
+      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      alt: "Motion video thumbnail",
+      ctaLabel: "Watch",
+    },
+  
+    {
+      src: "/branding/womensDay.png", // your thumbnail
+      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      alt: "Motion video thumbnail",
+      ctaLabel: "Watch",
+    },
+    {
+      src: "/branding/posspoleVerticles.png", // your thumbnail
+      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      alt: "Motion video thumbnail",
+      ctaLabel: "Watch",
+    },
+    
+    
   ];
 
   // EVENTS ITEMS (images)
