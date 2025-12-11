@@ -69,7 +69,7 @@ const About = () => {
   const [rightRef, rightVisible] = useInView();
 
   return (
-    <section className="min-h-[70vh] px-4 py-16 pt-8 md:px-0">
+    <section className="px-4 py-10 md:py-14 md:px-0">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start">
         {/* LEFT SIDE */}
         <div

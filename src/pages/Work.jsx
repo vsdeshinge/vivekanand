@@ -214,7 +214,8 @@ const Work = () => {
   ];
 
   return (
-    <section id="work" className="min-h-[80vh] px-4 py-16 pt-8 md:px-0">
+    <section id="work" className="px-4 py-10 md:py-14 md:px-0">
+
       <div className="mx-auto max-w-6xl space-y-12">
         {/* HEADING */}
         <div>
