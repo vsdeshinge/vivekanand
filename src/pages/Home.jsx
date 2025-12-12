@@ -13,13 +13,14 @@ const Home = () => {
       <Hero />
 
       <About />
+      <Services />
 
       {/* Pull Work a bit closer to About */}
       <div className="-mt-4 md:-mt-6">
         <Work />
       </div>
 
-      <Services />
+      
       <TestimonialsSection />
       <Contact />
     </div>
