@@ -2,20 +2,20 @@
 
 const testimonials = [
   {
-    name: "Rahul Sharma",
-    role: "Founder, D2C Brand",
+    name: "Kiran C",
+    role: "Redefine Group",
     quote:
       "Maharshi handled everything from the website UI to launch creatives. He was fast, clear to communicate with, and the final result matched our brand perfectly.",
   },
   {
-    name: "Ananya Gupta",
-    role: "Marketing Head, Tech Startup",
+    name: "Vijay",
+    role: "Center Head Reon",
     quote:
       "We needed a clean product site, demo video, and event booth design on a very tight deadline. He managed all three verticals without dropping quality.",
   },
   {
-    name: "Sanjay Mehta",
-    role: "Event & Expo Coordinator",
+    name: "Shashi",
+    role: "Posspole",
     quote:
       "He understands how stalls work in real life – from layout and fabrication to where people will actually stand and click photos. That made a huge difference.",
   },

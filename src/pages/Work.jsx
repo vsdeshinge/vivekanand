@@ -117,27 +117,27 @@ const Work = () => {
   const webItems = [
     {
       src: "/web/fashionMockup.png",
-      href: "https://your-site-1.com",
+      href: "https://fashion.posspole.com",
       alt: "Fashion mockup website",
     },
     {
       src: "/web/chapristoreMockup.png",
-      href: "https://your-site-2.com",
+
       alt: "Chapri Store mockup",
     },
     {
       src: "/web/posspoleMockup.png",
-      href: "https://your-site-3.com",
+      href: "https://posspole.com",
       alt: "Posspole website mockup",
     },
     {
       src: "/web/reonMockup.png",
-      href: "https://your-site-4.com",
+      href: "https://reonskills.com",
       alt: "Reon Skills website mockup",
     },
     {
       src: "/web/vceMockup.png",
-      href: "https://your-site-5.com",
+
       alt: "VCE website mockup",
     },
   ];
@@ -165,43 +165,41 @@ const Work = () => {
   const motionItems = [
     {
       src: "/branding/maye.jpg", // your thumbnail
-      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      href: "https://youtu.be/NkrfACyn4ig?si=7Imlj3vf_IsimOUI",
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
     {
       src: "/branding/reonskills.jpg", // your thumbnail
-      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      href: "https://youtu.be/o9tZNeTvE1E",
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
     {
       src: "/branding/posspole.png", // your thumbnail
-      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      href: "https://youtu.be/6u5xUOYIrSw",
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
     {
       src: "/branding/newYear.png", // your thumbnail
-      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      href: "https://youtu.be/lpXa4gvQdeM",
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
-  
+
     {
       src: "/branding/womensDay.png", // your thumbnail
-      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      href: "https://youtu.be/iSuCVR8Zsts",
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
     {
       src: "/branding/posspoleVerticles.png", // your thumbnail
-      href: "https://drive.google.com/file/d/1wLtTMM6Q4_9kHx4ZJjIJ_-ojXMq63h2h/view?usp=sharing",
+      href: "https://youtu.be/UbSn-e2FDRw",
       alt: "Motion video thumbnail",
       ctaLabel: "Watch",
     },
-    
-    
   ];
 
   // EVENTS ITEMS (images)
@@ -215,7 +213,6 @@ const Work = () => {
 
   return (
     <section id="work" className="px-4 py-10 md:py-14 md:px-0">
-
       <div className="mx-auto max-w-6xl space-y-12">
         {/* HEADING */}
         <div>
