@@ -16,7 +16,7 @@ const Home = () => {
 
       <About />
       <Services />
-      {/*<Service />*/}
+      <Service />
 
       {/* Pull Work a bit closer to About */}
       <div className="-mt-4 md:-mt-6">
