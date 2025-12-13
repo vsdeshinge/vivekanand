@@ -15,7 +15,7 @@ const Home = () => {
       <Hero />
 
       <About />
-      <Services />
+      {/*<Services />*/}
       <Service />
 
       {/* Pull Work a bit closer to About */}
