@@ -12,13 +12,13 @@ const services = [
     id: "branding",
     title: "Branding & Graphic Design",
     subtitle: "Logos, identity systems, print & digital assets that feel premium.",
-    video: "/services/branding.mp4",
+    video: "/videos/fathermuller1.mp4",
   },
   {
     id: "motion",
     title: "Motion & Video",
     subtitle: "Reels, promos, explainers — edits that feel sharp and modern.",
-    video: "/services/motion.mp4",
+    video: "/videos/redefine2.mp4"
   },
   {
     id: "events",

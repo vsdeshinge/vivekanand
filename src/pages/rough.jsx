@@ -4,33 +4,39 @@ import { useEffect, useRef, useState } from "react";
 const services = [
   {
     id: "web",
-    title: "Web Design & Development",
-    subtitle: "Fast, clean, conversion-focused sites + dashboards built to scale.",
-    video: "/videos/redefine.mp4",
+    title: "Web/App Design & Development",
+    subtitle: "High-performance websites and dashboards built to convert.",
+    video: "/videos/iphone.mp4",
+  },
+  {
+    id: "systems",
+    title: "Product UI & Design Systems",
+    subtitle: "Reusable components and UI kits that keep teams aligned.",
+    video: "/videos/redefine2.mp4",
   },
   {
     id: "branding",
     title: "Branding & Graphic Design",
-    subtitle: "Logos, identity systems, print & digital assets that feel premium.",
+    subtitle: "Brand identities, print, and digital assets that look premium.",
     video: "/videos/fathermuller1.mp4",
+  },
+  {
+    id: "logos",
+    title: "Logo Design",
+    subtitle: "Distinct, memorable logos that fit your brand and audience.",
+    video: "/videos/redefine.mp4",
   },
   {
     id: "motion",
     title: "Motion & Video",
-    subtitle: "Reels, promos, explainers — edits that feel sharp and modern.",
-    video: "/services/motion.mp4",
+    subtitle: "Promos, reels, and edits that feel modern and sharp.",
+    video: "/videos/redefine2.mp4",
   },
   {
     id: "events",
     title: "Event & Exhibition Fabrication",
-    subtitle: "From concept to execution — spaces people remember and photograph.",
-    video: "/services/events.mp4",
-  },
-  {
-    id: "systems",
-    title: "Product & UI Systems",
-    subtitle: "Design systems + UI kits that keep teams consistent and faster.",
-    video: "/services/systems.mp4",
+    subtitle: "Concept-to-execution spaces that people notice and remember.",
+    video: "/videos/posspole_exhi.mp4",
   },
 ];
 
@@ -93,7 +99,9 @@ function ServiceCard({ item, index }) {
         </span>
       </h3>
 
-      <p className="mt-2 text-sm text-slate-300 md:text-base">{item.subtitle}</p>
+      <p className="mt-2 text-sm text-slate-300 md:text-base">
+        {item.subtitle}
+      </p>
     </article>
   );
 }
@@ -114,7 +122,8 @@ export default function Services() {
             <h1 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
               We build <span className="text-brand-gradient">digital</span>,{" "}
               <span className="text-brand-gradient">visual</span> &{" "}
-              <span className="text-brand-gradient">real-world</span> experiences.
+              <span className="text-brand-gradient">real-world</span>{" "}
+              experiences.
             </h1>
 
             <p className="text-sm text-slate-300 md:text-base">
@@ -124,14 +133,16 @@ export default function Services() {
 
             {/* optional mini tags */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {["Web", "Branding", "Motion", "Events", "UI Systems"].map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-slate-200"
-                >
-                  {t}
-                </span>
-              ))}
+              {["Web", "Branding", "Motion", "Events", "UI Systems"].map(
+                (t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-slate-200"
+                  >
+                    {t}
+                  </span>
+                )
+              )}
             </div>
 
             {/* optional CTA */}

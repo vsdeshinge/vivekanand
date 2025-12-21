@@ -1,8 +1,6 @@
 // src/pages/Home.jsx
 import About from "./About";
 import Services from "./Services";
-import Service from "./rough"; // ✅ matches Service.jsx exactly
-
 
 import Contact from "./Contact";
 import Work from "./Work";
@@ -16,14 +14,13 @@ const Home = () => {
 
       <About />
       {/*<Services />*/}
-      <Service />
+      <Services />
 
       {/* Pull Work a bit closer to About */}
       <div className="-mt-4 md:-mt-6">
         <Work />
       </div>
 
-      
       <TestimonialsSection />
       <Contact />
     </div>

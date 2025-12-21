@@ -1,122 +1,169 @@
 // src/pages/Services.jsx
+import { useEffect, useRef, useState } from "react";
 
 const services = [
   {
-    title: "Web Development",
-    subtitle: "Frontend • Backend • Full-stack",
-    description:
-      "Clean, fast and responsive websites built with modern stacks – from landing pages to full web apps.",
-    points: [
-      "React & Angular frontends",
-      "Node.js & Spring Boot APIs",
-      "MongoDB, MySQL, PostgreSQL",
-      "Portfolio, business & custom tools",
-    ],
+    id: "web",
+    title: "Web/App Design & Development",
+    subtitle: "High-performance websites and dashboards built to convert.",
+    video: "/videos/iphone.mp4",
   },
   {
-    title: "Design & Branding",
-    subtitle: "Visual identity that feels right",
-    description:
-      "Brand visuals that look sharp across print, digital and social – built to match your business, not a template.",
-    points: [
-      "Logos & visual identity",
-      "Social media & campaign creatives",
-      "Brochures, posters & marketing collaterals",
-      "UI layout mockups & design systems",
-    ],
+    id: "systems",
+    title: "Product UI & Design Systems",
+    subtitle: "Reusable components and UI kits that keep teams aligned.",
+    video: "/videos/redefine2.mp4",
   },
   {
+    id: "branding",
+    title: "Branding & Graphic Design",
+    subtitle: "Brand identities, print, and digital assets that look premium.",
+    video: "/videos/fathermuller1.mp4",
+  },
+  {
+    id: "logos",
+    title: "Logo Design",
+    subtitle: "Distinct, memorable logos that fit your brand and audience.",
+    video: "/videos/redefine.mp4",
+  },
+  {
+    id: "motion",
     title: "Motion & Video",
-    subtitle: "Stories that move",
-    description:
-      "Short, impactful motion pieces for launches, events and digital campaigns.",
-    points: [
-      "After Effects motion graphics",
-      "Product & brand promo videos",
-      "Showreels & event highlight edits",
-      "Social reels & ad creatives",
-    ],
+    subtitle: "Promos, reels, and edits that feel modern and sharp.",
+    video: "/videos/redefine2.mp4",
   },
   {
+    id: "events",
     title: "Event & Exhibition Fabrication",
-    subtitle: "On-ground experiences",
-    description:
-      "Concept-to-execution support for exhibitions and events, where your brand needs to stand out in the real world.",
-    points: [
-      "Stall & exhibition hall design",
-      "Fabrication coordination & layouts",
-      "Experience zones & selfie spots",
-      "End-to-end visual consistency with your brand",
-    ],
+    subtitle: "Concept-to-execution spaces that people notice and remember.",
+    video: "/videos/posspole_exhi.mp4",
   },
 ];
 
-const Services = () => {
+// lightweight: autoplay on view (prevents mobile playing all videos at once)
+function useInViewVideo() {
+  const ref = useRef(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { threshold: 0.55 }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return [ref, active];
+}
+
+function ServiceCard({ item, index }) {
+  const [wrapRef, active] = useInViewVideo();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    if (active) {
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [active]);
+
   return (
-    <section id="services" className="px-4 py-10 md:py-14 md:px-0">
-      <div className="mx-auto max-w-6xl">
-        {/* Heading */}
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
-            Services
-          </p>
-          <h1 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
-            One team,{" "}
-            <span className="text-brand-gradient">
-              from code to brand to stage.
-            </span>
-          </h1>
+    <article ref={wrapRef} className="p-5">
+      {/* square video */}
+      <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/40">
+        <video
+          ref={videoRef}
+          className="h-full w-full object-cover"
+          src={item.video}
+          muted
+          loop
+          playsInline
+          preload={index === 0 ? "auto" : "metadata"}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/25" />
+      </div>
 
-          <p className="mt-4 text-sm text-slate-300 md:text-base">
-            We don&apos;t just build websites or just design. We help you
-            connect the whole story – from digital presence and visuals to video
-            and on-ground event experiences.
-          </p>
-        </div>
+      <h3 className="mt-4 text-xl font-semibold md:text-2xl">
+        <span className="bg-gradient-to-r from-indigo-200 via-sky-200 to-violet-200 bg-clip-text text-transparent">
+          {item.title}
+        </span>
+      </h3>
 
-        {/* Cards */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-lg shadow-black/10"
-            >
-              <div>
-                <h2 className="font-display text-xl font-semibold text-white">
-                  {service.title}
-                </h2>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">
-                  {service.subtitle}
-                </p>
-                <p className="mt-3 text-sm text-slate-300">
-                  {service.description}
-                </p>
+      <p className="mt-2 text-sm text-slate-300 md:text-base">
+        {item.subtitle}
+      </p>
+    </article>
+  );
+}
 
-                <ul className="mt-4 space-y-1.5 text-sm text-slate-200">
-                  {service.points.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <span className="mt-[6px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-gradient" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+export default function Services() {
+  return (
+    // ↑ increased top padding so page content never kisses the fixed navbar
+    <section className="min-h-screen bg-[#020617] px-4 pb-16 pt-32 text-white md:px-0 md:pt-36">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12">
+        {/* LEFT (sticky) */}
+        <aside className="md:col-span-5">
+          {/* ↑ increased sticky top so it stays a bit lower than navbar */}
+          <div className="space-y-5 md:sticky md:top-32">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+              Services
+            </p>
 
-              {/* Tag chip */}
-              <div className="mt-5 flex flex-wrap gap-2">
-                <span className="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs text-slate-300">
-                  End-to-end support
-                </span>
-                <span className="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs text-slate-300">
-                  Freelance / project basis
-                </span>
-              </div>
-            </article>
+            <h1 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
+              We build <span className="text-brand-gradient">digital</span>,{" "}
+              <span className="text-brand-gradient">visual</span> &{" "}
+              <span className="text-brand-gradient">real-world</span>{" "}
+              experiences.
+            </h1>
+
+            <p className="text-sm text-slate-300 md:text-base">
+              A small team led by Maharshi — mixing development, design, motion,
+              and fabrication to help brands look sharp and feel memorable.
+            </p>
+
+            {/* optional mini tags */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {["Web", "Branding", "Motion", "Events", "UI Systems"].map(
+                (t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-slate-200"
+                  >
+                    {t}
+                  </span>
+                )
+              )}
+            </div>
+
+            {/* optional CTA */}
+            <div className="pt-4">
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2 text-sm hover:bg-white/[0.06]"
+              >
+                Start a project <span aria-hidden>↗</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        {/* RIGHT (scrolling stack) */}
+        <div className="space-y-6 md:col-span-7">
+          {services.map((item, idx) => (
+            <ServiceCard key={item.id} item={item} index={idx} />
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Services;
+}
