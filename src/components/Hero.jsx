@@ -44,43 +44,42 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         {/* TEXT BLOCK */}
         <div className="text-center py-6 md:py-8">
-          <p className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-slate-400">
-            Web Development • Designing • Event Management • Motion Graphics
+          <p className="text-[6.5px] sm:text-[9.5px] md:text-xs uppercase tracking-[0.16em] sm:tracking-[0.18em] md:tracking-[0.25em] text-slate-400">
+            Web/App Development • Designing • Event Management • Motion Graphics
           </p>
 
-         <div className="mt-1">
-  <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
-    <span className="gradient-text">Thinking made </span>
-    <span className="text-white">visible</span>
-  </h1>
+          <div className="mt-1">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <span className="gradient-text">Thinking made </span>
+              <span className="text-white">visible</span>
+            </h1>
 
-  <div className="relative w-full flex justify-center mt-0">
-    <h2
-      className="
+            <div className="relative w-full flex justify-center mt-0">
+              <h2
+                className="
         text-[22px] md:text-[30px] lg:text-[72px]
         font-medium leading-tight
         transform -translate-x-2 md:-translate-x-10
         relative
         -mt-1 md:-mt-2
       "
-    >
-      <span className="text-white">Visible </span>
+              >
+                <span className="text-white">Visible </span>
 
-      <span className="text-white pr-4 inline-block">MADE</span>
+                <span className="text-white pr-4 inline-block">MADE</span>
 
-      <span
-        className="
+                <span
+                  className="
           gradient-text corinthia-bold 
           text-[40px] md:text-[60px] lg:text-[125px]
           -ml-[40px] signature-animate
         "
-      >
-        Available
-      </span>
-    </h2>
-  </div>
-</div>
-
+                >
+                  Available
+                </span>
+              </h2>
+            </div>
+          </div>
         </div>
 
         {/* TWO HERO IMAGES BELOW TEXT */}
