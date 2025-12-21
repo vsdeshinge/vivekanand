@@ -209,6 +209,7 @@ const Work = () => {
       alt: "Reon Skills exhibition booth",
     },
     { src: "/exhibition/TIE.JPG", alt: "TIE event setup" },
+    { src: "/exhibition/posspole_exhibition.jpg", alt: "TIE event setup" },
   ];
 
   return (
