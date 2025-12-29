@@ -1,5 +1,14 @@
 // src/pages/Services.jsx
 import { useEffect, useRef, useState } from "react";
+  {/*
+
+  }
+  {
+    id: "motion",
+    title: "Motion & Video",
+    subtitle: "Promos, reels, and edits that feel modern and sharp.",
+    video: "/videos/redefine2.mp4",
+  },*/}
 
 const services = [
   {
@@ -26,12 +35,7 @@ const services = [
     subtitle: "Distinct, memorable logos that fit your brand and audience.",
     video: "/videos/redefine.mp4",
   },
-  {
-    id: "motion",
-    title: "Motion & Video",
-    subtitle: "Promos, reels, and edits that feel modern and sharp.",
-    video: "/videos/redefine2.mp4",
-  },
+
   {
     id: "events",
     title: "Event & Exhibition Fabrication",

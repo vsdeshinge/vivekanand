@@ -66,7 +66,7 @@ const Contact = () => {
             </p>
             <h1 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
               Let&apos;s{" "}
-              <span className="text-brand-gradient">build something</span>{" "}
+              <span className="text-brand-gradient">build </span>{" "}
               together.
             </h1>
             <p className="mt-4 text-sm text-slate-300 md:text-base">
