@@ -83,12 +83,12 @@ const About = () => {
           </p>
 
           <h1 className="font-display text-3xl font-semibold text-white md:text-4xl">
-            The team that loves{" "}
+            I love{" "}
             <span className="text-brand-gradient">building &amp; creating</span>
           </h1>
 
           <p className="text-sm text-slate-300 md:text-base">
-            We&apos;re a team led by Maharshi — blending{" "}
+            I&apos;m VIVEKANAND — blending{" "}
             <span className="font-medium text-slate-100">
               web development, design, motion graphics, and event fabrication
             </span>{" "}
@@ -96,15 +96,20 @@ const About = () => {
           </p>
 
           <p className="text-sm text-slate-300 md:text-base">
-            Together we&apos;ve worked with{" "}
+            I&apos;ve worked with{" "}
             <span className="font-medium text-slate-100">100+ clients</span> on
-            websites, brand identities, launch campaigns, and exhibition setups.
+            websites, brand identity, launch campaigns, exhibition setups, and
+            e-commerce growth.
           </p>
 
           {/* Role pills */}
           <div className="mt-4 flex flex-wrap gap-2">
             {[
               "Web Development",
+              "Java Full Stack",
+              "SEO + GEO Optimization",
+              "Amazon / Flipkart Listing",
+              "WordPress Applications",
               "Brand & Graphic Design",
               "Motion & Video",
               "Event / Expo Fabrication",
@@ -132,7 +137,7 @@ const About = () => {
               [
                 "Clients",
                 <CountUp key="clients" value={100} suffix="+" />,
-                "Projects across web, design & events.",
+                "Projects across web, design, e-commerce, and events.",
               ],
               ["Focus", "Full-stack & Creative", "From frontend UX to backend logic."],
               ["Based In", "India", "Working with clients anywhere."],
@@ -161,7 +166,7 @@ const About = () => {
             }`}
           >
             <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
-              What we work with
+              What I work with
             </p>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -170,17 +175,24 @@ const About = () => {
                   Web &amp; Backend
                 </p>
                 <p className="mt-2 text-sm text-slate-200">
-                  HTML, CSS, JavaScript, React, Angular, Node.js, Spring Boot,
-                  MongoDB, MySQL, PostgreSQL.
+                  HTML, CSS, JavaScript, React, Angular, Node.js, Java (Full
+                  Stack), Spring Boot, MongoDB, MySQL, PostgreSQL, WordPress.
+                </p>
+                <p className="mt-2 text-sm text-slate-200">
+                  SEO, GEO optimization, performance tuning, and analytics setup.
                 </p>
               </div>
+
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
                   Design &amp; Motion
                 </p>
                 <p className="mt-2 text-sm text-slate-200">
                   Illustrator, Photoshop, InDesign, Lightroom, After Effects,
-                  Premiere Pro, plus custom fabrication & expo layouts.
+                  Premiere Pro, plus custom fabrication and expo layouts.
+                </p>
+                <p className="mt-2 text-sm text-slate-200">
+                  Amazon / Flipkart product listing design and storefront visuals.
                 </p>
               </div>
             </div>

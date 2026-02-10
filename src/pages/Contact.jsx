@@ -8,7 +8,6 @@ const Contact = () => {
     name: "",
     email: "",
     projectType: "",
-    budget: "",
     timeline: "",
     message: "",
   });
@@ -43,7 +42,6 @@ const Contact = () => {
         name: "",
         email: "",
         projectType: "",
-        budget: "",
         timeline: "",
         message: "",
       });
@@ -65,8 +63,7 @@ const Contact = () => {
               Contact
             </p>
             <h1 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
-              Let&apos;s{" "}
-              <span className="text-brand-gradient">build </span>{" "}
+              Let&apos;s <span className="text-brand-gradient">build </span>{" "}
               together.
             </h1>
             <p className="mt-4 text-sm text-slate-300 md:text-base">
@@ -86,10 +83,10 @@ const Contact = () => {
               <p>
                 <span className="text-slate-400">Contact No:</span>{" "}
                 <a
-                  href="tel:+916361588219"
+                  href="tel:+917975611668"
                   className="font-medium text-slate-100 hover:text-slate-50 hover:underline"
                 >
-                  +91 6361588219
+                  +91 7975611668
                 </a>
               </p>
 
@@ -215,27 +212,6 @@ const Contact = () => {
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="budget"
-                  className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-400"
-                >
-                  Approx. budget (optional)
-                </label>
-                <select
-                  id="budget"
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950/80 px-3 py-2.5 text-sm text-slate-100 outline-none ring-0 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
-                >
-                  <option value="">Not sure yet</option>
-                  <option value="low">₹25k – ₹75k</option>
-                  <option value="mid">₹75k – ₹2L</option>
-                  <option value="high">₹2L+</option>
-                </select>
-              </div>
-
               <div>
                 <label
                   htmlFor="timeline"

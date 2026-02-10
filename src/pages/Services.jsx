@@ -124,15 +124,15 @@ export default function Services() {
             </p>
 
             <h1 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
-              We build <span className="text-brand-gradient">digital</span>,{" "}
+              I build <span className="text-brand-gradient">digital</span>,{" "}
               <span className="text-brand-gradient">visual</span> &{" "}
               <span className="text-brand-gradient">real-world</span>{" "}
               experiences.
             </h1>
 
             <p className="text-sm text-slate-300 md:text-base">
-              A small team led by Maharshi — mixing development, design, motion,
-              and fabrication to help brands look sharp and feel memorable.
+              I&apos;m VIVEKANAND — mixing development, design, motion, and
+              fabrication to help brands look sharp and feel memorable.
             </p>
 
             {/* optional mini tags */}

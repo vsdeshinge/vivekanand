@@ -21,16 +21,16 @@ const Footer = () => {
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="font-display text-lg font-semibold tracking-wide text-white">
-                  Maharshi
+                  VIVEKANAND
                 </span>
                 <span className="text-[11px] uppercase tracking-[0.3em] text-slate-400">
-                  Events & Designs
+                  Shridhar Deshinge
                 </span>
               </div>
             </div>
 
             <p className="text-sm text-slate-400">
-              Freelance web developer, designer, motion editor and event
+              web developer, designer, motion editor and event
               fabrication partner for brands that want clean builds and sharp
               visuals.
             </p>
@@ -124,7 +124,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-4 text-[11px] text-slate-500 md:flex-row">
-          <p>© {year} Maharshi. All rights reserved.</p>
+          <p>© {year} Vivekanand. All rights reserved.</p>
           <p>
             Designed &amp; built with{" "}
             <span className="text-brand-gradient">care</span> in React &amp;

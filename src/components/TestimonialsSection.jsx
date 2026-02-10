@@ -23,10 +23,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section
-      id="testimonials"
-      className="px-4 py-16 md:px-0"
-    >
+    <section id="testimonials" className="px-4 py-16 md:px-0">
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <div className="max-w-3xl">
@@ -36,11 +33,11 @@ const TestimonialsSection = () => {
           <h2 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
             What clients{" "}
             <span className="text-brand-gradient">say about working</span> with
-            Us.
+            me.
           </h2>
           <p className="mt-4 text-sm text-slate-300 md:text-base">
-            We work with founders, marketing teams and event coordinators. Here&apos;s
-            some feedback from people I&apos;ve collaborated with.
+            I work with founders, marketing teams, and event coordinators.
+            Here&apos;s some feedback from people I&apos;ve collaborated with.
           </p>
         </div>
 
@@ -72,9 +69,7 @@ const TestimonialsSection = () => {
 
         {/* Subtext */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
-          <span>
-            Most of my work comes through repeat clients and word of mouth.
-          </span>
+          <span>Most of my work comes through repeat clients and word of mouth.</span>
           <span className="rounded-full bg-slate-900/80 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-300">
             Available for new projects
           </span>

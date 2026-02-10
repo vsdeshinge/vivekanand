@@ -227,7 +227,7 @@ const Work = () => {
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-slate-300 md:text-base">
-            These are just slices of the work. Each horizontal strip is a
+            These are just slices of my work. Each horizontal strip is a
             different category — drag or let it auto-scroll.
           </p>
         </div>

@@ -9,6 +9,11 @@ const navLinks = [
   { to: "/work", label: "Work" },
 ];
 
+// ✅ Put your Google Drive resume link here
+// Tip: Use a direct download link format if you want it to download immediately.
+// Example direct: https://drive.google.com/uc?export=download&id=FILE_ID
+const RESUME_URL = "PASTE_YOUR_GOOGLE_DRIVE_LINK_HERE";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,10 +46,10 @@ const Navbar = () => {
 
           <div className="hidden flex-col leading-tight sm:flex text-left">
             <span className="font-display text-xl font-semibold tracking-wide text-white">
-              Maharshi
+              Vivekanand
             </span>
             <span className="text-[11px] uppercase tracking-[0.3em] text-slate-400">
-              Events & Designs
+              Shridhar Deshinge
             </span>
           </div>
         </NavLink>
@@ -61,6 +66,16 @@ const Navbar = () => {
               {item.label}
             </NavLink>
           ))}
+
+          {/* ✅ Download Resume (Desktop) */}
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-slate-600/70 bg-slate-950/40 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:border-slate-400/70 hover:bg-slate-900/50"
+          >
+            Download Resume
+          </a>
 
           <NavLink
             to="/contact"
@@ -101,7 +116,7 @@ const Navbar = () => {
       {/* Mobile dropdown (also fixed because it's inside header) */}
       <nav
         className={`md:hidden overflow-hidden border-t border-slate-800/80 bg-slate-950/95 transition-all duration-200 ${
-          isOpen ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="space-y-2 px-4 py-3">
@@ -115,6 +130,17 @@ const Navbar = () => {
               {item.label}
             </NavLink>
           ))}
+
+          {/* ✅ Download Resume (Mobile) */}
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMenu}
+            className="mt-2 block w-full rounded-full border border-slate-600/70 bg-slate-950/40 px-5 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition hover:border-slate-400/70 hover:bg-slate-900/50"
+          >
+            Download Resume
+          </a>
 
           <NavLink
             to="/contact"

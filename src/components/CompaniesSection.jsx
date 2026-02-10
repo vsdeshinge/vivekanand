@@ -58,13 +58,13 @@ const CompaniesSection = () => {
             Companies
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
-            Brands &amp; teams We&apos;ve{" "}
+            Brands &amp; teams I&apos;ve{" "}
             <span className="text-brand-gradient">worked with.</span>
           </h2>
           <p className="mt-4 text-sm text-slate-300 md:text-base">
             From early-stage startups to established brands, I&apos;ve
             collaborated with 100+ clients on websites, design systems, launch
-            campaigns and on-ground event experiences.
+            campaigns, and on-ground event experiences.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-4 py-1.5 text-xs text-slate-200">
@@ -94,8 +94,8 @@ const CompaniesSection = () => {
         {/* 100+ clients note */}
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
           <span>
-            This is just a small sample – there are many more projects across
-            different industries.
+            This is just a small sample – I&apos;ve worked on many more projects
+            across different industries.
           </span>
           <span className="rounded-full bg-slate-900/80 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-300">
             100+ clients &amp; counting
